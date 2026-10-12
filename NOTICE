@@ -1,0 +1,16 @@
+Documentation and website code
+Copyright (c) 2026 The netfyr authors
+Licensed under the MIT License; see LICENSE.
+
+netfyr Sans and netfyr Mono
+Copyright (c) 2026 The netfyr authors
+Licensed under the SIL Open Font License 1.1; see docs/assets/fonts/OFL.txt.
+Font files are copied without modification from netfyr/design, release 0.507.
+The original reviewed hashes and license metadata amendment are recorded at:
+https://github.com/netfyr/design/blob/b7871e4a1195b43b05b97ec786010489f72123cc/public/fonts/license-amendment.json
+
+The netfyr name, flame and standalone logo artwork remain all rights reserved.
+They are not covered by the MIT License or the SIL Open Font License.
+
+Header and navigation templates in overrides/partials are adapted from Material
+for MkDocs. Copyright (c) 2016-2025 Martin Donath. See overrides/LICENSE.

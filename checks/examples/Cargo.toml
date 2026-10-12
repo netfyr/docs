@@ -1,0 +1,9 @@
+[package]
+name = "netfyr-docs-examples"
+version = "0.0.0"
+edition = "2024"
+publish = false
+
+[dev-dependencies]
+netfyr-policy = { git = "https://github.com/netfyr/netfyr", rev = "4dbbc01e1e38d9016201e2df25601c12936f1606" }
+netfyr-state = { git = "https://github.com/netfyr/netfyr", rev = "4dbbc01e1e38d9016201e2df25601c12936f1606" }

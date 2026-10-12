@@ -1,0 +1,8 @@
+.venv/
+.build/
+.cache/
+.calira/
+site/
+__pycache__/
+*.pyc
+target/

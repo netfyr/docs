@@ -1,0 +1,3 @@
+match:
+  name: eth0
+mtu: 1500

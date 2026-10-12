@@ -1,0 +1,8 @@
+kind: policy
+name: dhcp
+match:
+  name: eth0
+ipv4:
+  dhcp4:
+    send-hostname: true
+    route-metric: 100

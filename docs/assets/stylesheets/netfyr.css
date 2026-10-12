@@ -1,0 +1,269 @@
+@font-face {
+  font-family: "netfyr Sans";
+  src: url("../fonts/netfyrsans-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "netfyr Sans";
+  src: url("../fonts/netfyrsans-SemiBold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "netfyr Sans";
+  src: url("../fonts/netfyrsans-Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "netfyr Sans";
+  src: url("../fonts/netfyrsans-Italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "netfyr Sans";
+  src: url("../fonts/netfyrsans-BoldItalic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "netfyr Mono";
+  src: url("../fonts/netfyrmono-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "netfyr Mono";
+  src: url("../fonts/netfyrmono-Bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "netfyr Mono";
+  src: url("../fonts/netfyrmono-Italic.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  --md-text-font: "netfyr Sans";
+  --md-code-font: "netfyr Mono";
+  font-synthesis: none;
+}
+
+[data-md-color-scheme="default"] {
+  --md-default-fg-color: #211c19;
+  --md-default-fg-color--light: #65584f;
+  --md-default-fg-color--lighter: #82736a;
+  --md-default-fg-color--lightest: #ded4c9;
+  --md-default-bg-color: #f7f2ea;
+  --md-primary-fg-color: #211c19;
+  --md-primary-fg-color--light: #3b312b;
+  --md-primary-fg-color--dark: #211c19;
+  --md-primary-bg-color: #f7f2ea;
+  --md-primary-bg-color--light: #e8ddd1;
+  --md-accent-fg-color: #af4d10;
+  --md-accent-fg-color--transparent: #ff7a1a1a;
+  --md-typeset-a-color: #af4d10;
+  --netfyr-surface: #eee6dc;
+  --netfyr-border: #ded4c9;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 24;
+  --md-default-fg-color: #f7f2ea;
+  --md-default-fg-color--light: #c7b9ad;
+  --md-default-fg-color--lighter: #a4968a;
+  --md-default-fg-color--lightest: #4e4137;
+  --md-default-bg-color: #211c19;
+  --md-primary-fg-color: #211c19;
+  --md-primary-fg-color--light: #3b312b;
+  --md-primary-fg-color--dark: #211c19;
+  --md-primary-bg-color: #f7f2ea;
+  --md-primary-bg-color--light: #e8ddd1;
+  --md-accent-fg-color: #ff7a1a;
+  --md-accent-fg-color--transparent: #ff7a1a1a;
+  --md-typeset-a-color: #ff7a1a;
+  --netfyr-surface: #302822;
+  --netfyr-border: #4e4137;
+}
+
+[data-md-color-scheme] {
+  --md-code-fg-color: #f7f2ea;
+  --md-code-bg-color: #211c19;
+  --md-code-hl-color: #ff7a1a26;
+  --md-code-hl-number-color: #ffc087;
+  --md-code-hl-special-color: #ffc087;
+  --md-code-hl-function-color: #f7f2ea;
+  --md-code-hl-constant-color: #ffc087;
+  --md-code-hl-keyword-color: #ff9d57;
+  --md-code-hl-string-color: #e8c9a7;
+  --md-code-hl-name-color: #f7f2ea;
+  --md-code-hl-operator-color: #c7b9ad;
+  --md-code-hl-punctuation-color: #c7b9ad;
+  --md-code-hl-comment-color: #b9aa9d;
+  --md-code-hl-generic-color: #f7f2ea;
+  --md-code-hl-variable-color: #f7f2ea;
+}
+
+.md-header,
+.md-tabs {
+  border-bottom: 1px solid #4e4137;
+}
+
+.md-header__button.md-logo {
+  display: block;
+  flex-shrink: 0;
+}
+
+.md-header__button[for="__drawer"] {
+  order: -1;
+}
+
+.md-header__button.md-logo img,
+.md-nav__title .md-nav__button.md-logo img {
+  width: auto;
+  height: 1.5rem;
+}
+
+.md-header__title {
+  min-width: 0;
+}
+
+.md-header__title .md-header__topic {
+  font-weight: 400;
+  opacity: 1;
+  transform: none;
+  transition: none;
+  visibility: hidden;
+  z-index: 0;
+}
+
+.md-header__title--active .md-header__topic {
+  visibility: visible;
+}
+
+@media (max-width: 76.234375em) {
+  .md-nav--primary > .md-nav__title {
+    height: auto;
+    padding: 0.4rem;
+  }
+
+  .md-nav--primary > .md-nav__title .md-logo {
+    position: static;
+    width: fit-content;
+  }
+}
+
+@media (max-width: 44.984375em) {
+  .md-header__title .md-header__topic {
+    display: none;
+  }
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4 {
+  color: var(--md-default-fg-color);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.md-typeset h1 {
+  margin-bottom: 0.8em;
+}
+
+.md-typeset a:not(.headerlink):hover {
+  text-decoration: underline;
+}
+
+.md-typeset code {
+  font-size: 0.82em;
+}
+
+.md-typeset :not(pre) > code {
+  color: var(--md-default-fg-color);
+  background: var(--netfyr-surface);
+}
+
+.md-typeset pre > code {
+  border: 1px solid var(--netfyr-border);
+  border-radius: 0.2rem;
+}
+
+.md-code__button {
+  color: #c7b9ad;
+}
+
+.md-code__button:is(:hover, :focus-visible) {
+  color: #ff7a1a;
+}
+
+.md-typeset table:not([class]) {
+  border-color: var(--netfyr-border);
+}
+
+.md-typeset table:not([class]) th {
+  background: var(--netfyr-surface);
+}
+
+.md-typeset .admonition,
+.md-typeset details {
+  border-color: var(--md-accent-fg-color);
+  font-size: 0.75rem;
+}
+
+.md-typeset .admonition.note {
+  border-color: var(--md-accent-fg-color);
+}
+
+.md-typeset .note > .admonition-title {
+  background-color: #ff7a1a14;
+}
+
+.md-typeset .note > .admonition-title::before {
+  background-color: var(--md-accent-fg-color);
+}
+
+.md-footer,
+.md-footer-meta {
+  color: #f7f2ea;
+  background: #211c19;
+}
+
+.md-footer {
+  border-top: 1px solid #4e4137;
+}
+
+:focus-visible {
+  outline: 2px solid var(--md-accent-fg-color);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    animation-duration: 0s !important;
+  }
+}

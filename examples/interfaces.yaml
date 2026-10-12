@@ -1,0 +1,10 @@
+- kind: policy
+  name: uplink
+  match:
+    name: eth0
+  mtu: 1500
+- kind: policy
+  name: storage
+  match:
+    name: eth1
+  mtu: 9000

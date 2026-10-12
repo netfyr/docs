@@ -1,0 +1,6 @@
+match:
+  name: eth0
+ipv4:
+  addresses:
+    - ip: 192.0.2.10/24
+    - ip: 192.0.2.11/24

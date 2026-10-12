@@ -1,0 +1,9 @@
+kind: policy
+name: office
+match:
+  name: eth0
+enabled: true
+mtu: 1500
+ipv4:
+  addresses:
+    - ip: 192.0.2.10/24
