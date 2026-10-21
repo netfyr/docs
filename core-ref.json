@@ -1,7 +1,7 @@
 {
   "version": 1,
   "repository": "https://github.com/netfyr/netfyr",
-  "revision": "4dbbc01e1e38d9016201e2df25601c12936f1606",
+  "revision": "145cd5b2684b565c38cee82c673d53259e7302e3",
   "schemas": {
     "base.json": "15907ea1bd642a197cd6509517d59759cf9892f22ea58ddbbc576b78e1720235",
     "ethernet.json": "fc975a1dda47e9cc7175b8ed0741733d6c347ae47edf0fb22874180a69a3ba88",

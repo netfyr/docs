@@ -5,5 +5,5 @@ edition = "2024"
 publish = false
 
 [dev-dependencies]
-netfyr-policy = { git = "https://github.com/netfyr/netfyr", rev = "4dbbc01e1e38d9016201e2df25601c12936f1606" }
-netfyr-state = { git = "https://github.com/netfyr/netfyr", rev = "4dbbc01e1e38d9016201e2df25601c12936f1606" }
+netfyr-policy = { git = "https://github.com/netfyr/netfyr", rev = "145cd5b2684b565c38cee82c673d53259e7302e3" }
+netfyr-state = { git = "https://github.com/netfyr/netfyr", rev = "145cd5b2684b565c38cee82c673d53259e7302e3" }
