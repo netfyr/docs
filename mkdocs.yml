@@ -83,3 +83,5 @@ extra_css:
 
 extra:
   generator: false
+  social_image: assets/images/netfyr-mesh-1200x630.jpg
+  social_image_alt: Five bracketed network nodes joined in a mesh, with one orange connection on a dark terminal screen.

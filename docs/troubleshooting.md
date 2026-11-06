@@ -1,3 +1,7 @@
+---
+description: Resolve netfyr policy validation errors, including unknown fields, invalid addresses, and duplicate policy names.
+---
+
 # Configuration errors
 
 Validation errors include field paths, including positions in address lists.

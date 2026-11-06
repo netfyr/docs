@@ -1,3 +1,7 @@
+---
+description: Write and validate Linux network configuration as YAML policies with netfyr.
+---
+
 # netfyr
 
 Write Linux network configuration as YAML policies. Each policy selects an

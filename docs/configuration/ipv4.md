@@ -1,3 +1,7 @@
+---
+description: Declare IPv4 addresses, prefix lengths, and address lifetimes in netfyr policies.
+---
+
 # IPv4 addresses
 
 Declare addresses as a list under `ipv4.addresses`:

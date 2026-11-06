@@ -1,3 +1,7 @@
+---
+description: Write your first netfyr policy to select an interface and declare its network configuration.
+---
+
 # Write a policy
 
 Save this example as `office.yaml`:
