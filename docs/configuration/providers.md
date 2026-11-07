@@ -1,3 +1,7 @@
+---
+description: Declare DHCP and IPv6 router-advertisement providers in netfyr policies. Provider execution is not available yet.
+---
+
 # Dynamic providers
 
 A policy can declare a dynamic provider alongside static configuration.

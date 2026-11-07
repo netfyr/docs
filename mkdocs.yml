@@ -1,5 +1,5 @@
-site_name: netfyr
-site_description: Configure Linux networking with netfyr.
+site_name: netfyr documentation
+site_description: User guides and field reference for writing netfyr network policies in YAML.
 site_url: !ENV [NETFYR_SITE_URL, "https://docs.netfyr.io/"]
 repo_name: netfyr/docs
 repo_url: https://github.com/netfyr/docs
@@ -59,7 +59,7 @@ markdown_extensions:
   - attr_list
   - tables
   - toc:
-      permalink: true
+      permalink: false
   - pymdownx.details
   - pymdownx.highlight:
       pygments_lang_class: true
@@ -83,3 +83,5 @@ extra_css:
 
 extra:
   generator: false
+  social_image: assets/images/netfyr-mesh-1200x630.jpg
+  social_image_alt: Five bracketed network nodes joined in a mesh, with one orange connection on a dark terminal screen.

@@ -1,3 +1,7 @@
+---
+description: Select interfaces, name policies, and organize netfyr configuration in YAML files and directories.
+---
+
 # Policy files
 
 A policy has a name, an interface selector under `match`, and configuration
