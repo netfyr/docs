@@ -1,3 +1,7 @@
+---
+description: Network interface fields, constraints, and JSON schemas for netfyr policies and observed state.
+---
+
 # State fields
 
 Set writable fields in a policy. `type` is also accepted as device metadata; [`match.type`](../configuration/policies.md) selects an interface. Other read-only fields describe observed state.

@@ -26,5 +26,10 @@
     <meta name="twitter:description" content="{{ description | e }}">
     <meta name="twitter:image" content="{{ image | e }}">
     <meta name="twitter:image:alt" content="{{ config.extra.social_image_alt | e }}">
+    {% if page.is_homepage %}
+      <script type="application/ld+json">
+        {{ {"@context": "https://schema.org", "@type": "WebSite", "name": config.site_name, "url": page.canonical_url} | tojson }}
+      </script>
+    {% endif %}
   {% endif %}
 {% endblock %}

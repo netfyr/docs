@@ -1,14 +1,14 @@
 ---
+title: Linux network configuration
 description: Write and validate Linux network configuration as YAML policies with netfyr.
 ---
 
-# netfyr
+# Linux network configuration {#netfyr}
 
-Write Linux network configuration as YAML policies. Each policy selects an
-interface and describes its configuration.
+Each netfyr policy selects an interface and describes its configuration in YAML.
 
-netfyr currently parses and validates policies. It has no command-line tool or
-backend for applying network changes yet.
+netfyr currently parses and validates policies. The end-user command-line tool
+for applying network changes is still in development.
 
 [Start with a policy](getting-started.md), then read about
 [policy files](configuration/policies.md) and [IPv4 addresses](configuration/ipv4.md).

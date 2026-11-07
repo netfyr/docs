@@ -1,5 +1,5 @@
-site_name: netfyr
-site_description: Configure Linux networking with netfyr.
+site_name: netfyr documentation
+site_description: User guides and field reference for writing netfyr network policies in YAML.
 site_url: !ENV [NETFYR_SITE_URL, "https://docs.netfyr.io/"]
 repo_name: netfyr/docs
 repo_url: https://github.com/netfyr/docs
@@ -59,7 +59,7 @@ markdown_extensions:
   - attr_list
   - tables
   - toc:
-      permalink: true
+      permalink: false
   - pymdownx.details
   - pymdownx.highlight:
       pygments_lang_class: true
