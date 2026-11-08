@@ -73,11 +73,7 @@ def main():
     args.body_file.write_text(
         f"Update the configuration reference and example checker to [core `{args.revision[:12]}`]"
         f"({sync_core.UPSTREAM}/commit/{args.revision}).\n\n"
-        "The sync job passed schema checks, the YAML example tests and a strict site build before opening this PR. "
-        "Review the field changes and update any affected guides before merging.\n\n"
-        f"[Core changes]({sync_core.UPSTREAM}/compare/{previous}...{args.revision})\n\n"
-        "GitHub may require a maintainer to approve the PR workflows. Merge this PR manually after review; "
-        "the merge starts the Pages deployment.\n"
+        f"[Core changes]({sync_core.UPSTREAM}/compare/{previous}...{args.revision})\n"
     )
 
 
