@@ -1,77 +1,77 @@
 ---
-description: Understand netfyr policy precedence, field merging, conflict diagnostics, and plans for network changes.
+description: How netfyr combines policy settings and resolves conflicts when planning network changes.
 ---
 
 # How policies combine
 
-Reconciliation compares policy contributions with an observation of the network
-and produces a plan. It keeps the fields each policy requests and uses observed
-values for fields no policy sets. It does not change the network itself; an
-application passes the plan to the [backend](../reference/support.md) to preview
-or apply it.
+Reconciliation combines policy settings and compares them with the current
+network state to produce a plan. Fields that no policy sets keep their observed
+values. The network changes only when an application asks the
+[backend](../reference/support.md) to apply the plan; it can preview the plan first.
 
 ## Choose field values
 
-All policies whose selectors match an interface contribute to its configuration.
-For example, these policies set a default MTU for Ethernet interfaces and a
-higher-priority value for `eth0`:
+Every policy that matches an interface contributes to its configuration. These
+two policies set an MTU of 1500 for Ethernet interfaces and override it with 9000
+for `eth0`:
 
 ```yaml
 --8<-- "priority.yaml"
 ```
 
-For an observed Ethernet interface named `eth0`, the resulting MTU is 9000.
-Other matching Ethernet interfaces receive 1500. No other configuration fields
-change.
+If `eth0` is an observed Ethernet interface, both policies match it. Its MTU is
+9000 because `uplink-jumbo` has the higher priority. Other matching Ethernet
+interfaces get 1500, and all other configuration fields keep their observed values.
 
-Contributions are considered in this order:
+netfyr orders contributions by:
 
 | Order | Rule |
 | --- | --- |
 | 1 | Higher numeric `priority` first. Static policy fields default to 100. |
-| 2 | For equal priorities, the most specific selector field wins: `name`, then `mac`, `pci_path`, `driver`, and `type`. |
-| 3 | For equal priority and specificity, the policy name sorts first in bytewise lexical order. |
-| 4 | For a remaining tie, the application-supplied contribution key sorts first in bytewise lexical order. |
+| 2 | Selector specificity: `name` first, then `mac`, `pci_path`, `driver`, and `type`. |
+| 3 | Policy name, in bytewise lexical order. |
+| 4 | Contribution key supplied by the application, in bytewise lexical order. |
 
-Specificity uses the highest-ranked field present in the selector, not the
-number of fields. Every selector field must still match.
+Each row breaks ties left by the previous row. Specificity depends on the most
+specific field in the selector, regardless of how many fields it has. Every
+selector field must still match.
 
-[Directory precedence](policies.md#policy-search-path) happens before this step:
-only the selected definition of each policy name contributes.
+The loader applies [directory precedence](policies.md#policy-search-path) first,
+so only the selected definition of each policy name contributes.
 
 ## Combine fields
 
-Scalar values, such as `mtu` and `enabled`, take the first value in precedence
-order. Mappings merge recursively, so policies setting different fields under
-`ipv4` can both contribute.
+For scalar fields such as `mtu` and `enabled`, the first contribution in precedence
+order wins. Mappings merge recursively, so policies that set different fields
+under `ipv4` can both contribute.
 
-Lists form an ordered union across contributions. IPv4 addresses are identified
-by their address and prefix length; the first occurrence keeps its position and
-attributes. Other lists deduplicate identical elements. Fields omitted by every
-contribution retain their observed values.
+Lists combine in precedence order and keep the first occurrence of each element.
+For IPv4 addresses, netfyr compares the address and prefix length to identify
+duplicates; the first occurrence keeps its position and attributes. Other lists
+deduplicate identical elements. If every contribution omits a field, it keeps its
+observed value.
 
-An explicitly configured list replaces the observed list after the contributions
-have been combined. In particular, setting `ipv4.addresses` can remove existing
-addresses. Read [IPv4 address behavior](ipv4.md#existing-addresses) before applying
-an address policy.
+A configured list replaces the observed list after netfyr combines the
+contributions. Setting `ipv4.addresses` can therefore remove existing addresses.
+Read [IPv4 address behavior](ipv4.md#existing-addresses) before applying an address
+policy.
 
 ## Review a plan
 
 When contributions disagree about a scalar or the attributes of the same IPv4
-address, the default behavior selects the winning value and records a
-`ValueConflict` diagnostic with the competing values. The MTU example above
-therefore reports a conflict for `eth0`. Applications can set
-`ConflictPolicy::Reject` to return an error instead of a plan when values conflict.
-This is a library option, not a YAML policy field.
+address, netfyr selects the winning value and records the competing values in a
+`ValueConflict` diagnostic. The MTU example above reports a conflict for `eth0`.
+To reject conflicting values, applications can set `ConflictPolicy::Reject` in
+the library options. Reconciliation then returns an error instead of a plan.
+This option cannot be set in YAML.
 
-An unmatched selector produces an `UnmatchedPolicy` diagnostic and no operations
-for that selector. Other matching contributions can still produce a plan.
-Invalid contributions fail reconciliation even when their selectors match no
-device.
+When a selector matches no device, netfyr reports `UnmatchedPolicy` and plans no
+operations for it. Other matching contributions can still produce a plan.
+Invalid contributions fail reconciliation even when they match no device.
 
-A plan contains field changes, ordered backend operations, diagnostics, and the
-contribution keys responsible for changes and list elements. Applications can
-render it as text or JSON with `render_text` or `render_json`, then pass its
-`diff()` to the backend's `dry_run` method. Inspect that report before applying:
-fields accepted by the schema can still target an
-[unsupported device or operation](../reference/support.md#supported-changes).
+A plan contains field changes, backend operations in execution order, diagnostics,
+and the contribution keys for changed fields and list elements. Use
+`render_text` or `render_json` to display it, then pass its `diff()` to the
+backend's `dry_run` method. Check that report before applying the plan: the
+backend can reject an [unsupported device or operation](../reference/support.md#supported-changes)
+even when the policy passes schema validation.

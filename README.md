@@ -15,8 +15,7 @@ python3.13 -m venv .venv
 
 ## Check
 
-`core-ref.json` pins the core commit described by the guides and used by the
-reference and YAML examples.
+`core-ref.json` pins the core commit for the guides, reference, and YAML examples.
 Clone core once to check the generated files against that commit:
 
 ```sh
@@ -37,10 +36,10 @@ state schemas, regenerates the field reference and updates the example checker.
 It opens a PR after validation passes. Review the linked core changes and update
 affected guides before merging.
 
-Schema imports do not capture all behavior changes. Review policy loading,
-reconciliation, backend operations, and provider support even when the generated
-field tables are unchanged. Keep the [current support](docs/reference/support.md)
-page and the configuration guides aligned with the proposed core revision.
+Policy loading, reconciliation, backend operations, and provider support can
+change without changes to the schemas. Review these when updating core, and
+update the [current support](docs/reference/support.md) page and configuration
+guides to match the proposed revision.
 
 The workflow waits while an update PR is open. It skips previously proposed
 core commits, including closed PRs; reopen the PR to reconsider one.

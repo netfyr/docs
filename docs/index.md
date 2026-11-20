@@ -1,20 +1,21 @@
 ---
 title: Linux network configuration
-description: Define Linux network configuration in YAML, understand how policies merge, and check current netfyr support.
+description: Configure Linux network interfaces with netfyr YAML policies.
 ---
 
 # Linux network configuration {#netfyr}
 
-Each netfyr policy selects an interface and describes its configuration in YAML.
+A netfyr policy selects one or more interfaces and describes their configuration
+in YAML.
 
-The core libraries load and validate policies, merge their contributions against
-observed network state, and build a plan. The Linux backend can query interfaces
-and apply MTU, administrative-state, and IPv4 address changes to existing
-Ethernet and veth interfaces.
+The Rust libraries load and validate policies, combine their settings, and plan
+changes against the current network state. The Linux backend can query existing
+Ethernet and veth interfaces, change their MTU, bring them up or down, and manage
+their IPv4 addresses.
 
-These features are available through Rust libraries. The end-user command-line
-tool is still in development. See [current support](reference/support.md) for
-the available operations and their limits.
+The command-line tool is still in development. See
+[current support](reference/support.md) for the available library operations
+and their limits.
 
 [Start with a policy](getting-started.md), then read about
 [policy files](configuration/policies.md),

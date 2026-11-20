@@ -6,7 +6,7 @@ description: Network interface fields, constraints, and JSON schemas for netfyr 
 
 Set writable fields in a policy. `type` is also accepted as device metadata; [`match.type`](../configuration/policies.md) selects an interface. Other read-only fields describe observed state.
 
-Schema writability does not establish support for a device or operation. See [current support](support.md#supported-changes) for the backend's limits.
+The backend must support the device and operation as well as the field. See [current support](support.md#supported-changes) for its limits.
 
 Each download describes one group of state fields. See [policy files](../configuration/policies.md) for the full policy syntax and [dynamic providers](../configuration/providers.md) for provider parameters.
 
