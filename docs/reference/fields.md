@@ -60,4 +60,4 @@ Unlisted fields are rejected in this schema fragment.
 
 [Download ipv4 schema](schemas/ipv4.json)
 
-Source: [netfyr `dd72adabf0af`](https://github.com/netfyr/netfyr/tree/dd72adabf0af9a0ce01ad2be015e464745e5967f/crates/netfyr-state/schemas).
+Source: [netfyr `b6fb50d2bf95`](https://github.com/netfyr/netfyr/tree/b6fb50d2bf95504622502539578a7fc95f456126/crates/netfyr-state/schemas).

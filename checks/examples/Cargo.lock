@@ -113,7 +113,7 @@ dependencies = [
 [[package]]
 name = "netfyr-policy"
 version = "0.1.0"
-source = "git+https://github.com/netfyr/netfyr?rev=dd72adabf0af9a0ce01ad2be015e464745e5967f#dd72adabf0af9a0ce01ad2be015e464745e5967f"
+source = "git+https://github.com/netfyr/netfyr?rev=b6fb50d2bf95504622502539578a7fc95f456126#b6fb50d2bf95504622502539578a7fc95f456126"
 dependencies = [
  "indexmap",
  "netfyr-state",
@@ -123,7 +123,7 @@ dependencies = [
 [[package]]
 name = "netfyr-state"
 version = "0.1.0"
-source = "git+https://github.com/netfyr/netfyr?rev=dd72adabf0af9a0ce01ad2be015e464745e5967f#dd72adabf0af9a0ce01ad2be015e464745e5967f"
+source = "git+https://github.com/netfyr/netfyr?rev=b6fb50d2bf95504622502539578a7fc95f456126#b6fb50d2bf95504622502539578a7fc95f456126"
 dependencies = [
  "indexmap",
  "serde",
