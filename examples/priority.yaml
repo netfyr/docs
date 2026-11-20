@@ -1,0 +1,11 @@
+- kind: policy
+  name: ethernet-default
+  match:
+    type: ethernet
+  mtu: 1500
+- kind: policy
+  name: uplink-jumbo
+  priority: 110
+  match:
+    name: eth0
+  mtu: 9000

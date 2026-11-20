@@ -45,10 +45,12 @@ nav:
   - Getting started: getting-started.md
   - Configuration:
       - Policies: configuration/policies.md
+      - Reconciliation: configuration/reconciliation.md
       - IPv4: configuration/ipv4.md
       - Providers: configuration/providers.md
   - Troubleshooting: troubleshooting.md
   - Reference:
+      - Current support: reference/support.md
       - State fields: reference/fields.md
 
 plugins:

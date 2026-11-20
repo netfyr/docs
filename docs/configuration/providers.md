@@ -26,8 +26,15 @@ Unknown DHCPv4 parameters are rejected. Static `ipv4.addresses` and `ipv4.dhcp4`
 can appear in the same policy; the loader keeps the static configuration and
 provider declaration separate.
 
+DHCP declarations carry a default priority of 50. A policy's `priority` overrides
+only its static contribution; it does not change this provider priority.
+Reconciliation does not start DHCP or turn a declaration into a lease.
+
 ## IPv6 declarations
 
 netfyr also accepts declarations under `ipv6.dhcp6` and `ipv6.ra` for DHCPv6
 and router advertisements.
 Their parameter maps have no defined fields yet.
+DHCPv6 declarations use priority 50, and router-advertisement declarations use
+priority 25. Neither provider runs yet, and the current backend does not apply
+IPv6 address changes.
