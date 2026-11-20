@@ -44,6 +44,12 @@ guides to match the proposed revision.
 The workflow waits while an update PR is open. It skips previously proposed
 core commits, including closed PRs; reopen the PR to reconsider one.
 
+Update branches include both the core revision and the docs base commit. If PR
+creation fails and docs `main` advances, the next run uses a new branch. It leaves
+the old branch intact and still recognizes PRs for that core revision under
+either branch name. A retry on the same base reuses the branch only if its files
+match the generated update.
+
 Validation uses read-only access. A separate job publishes the reference and
 example dependency pins. Enable the repository's
 **Allow GitHub Actions to create and approve pull requests** setting.

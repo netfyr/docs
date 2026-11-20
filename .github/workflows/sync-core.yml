@@ -41,16 +41,15 @@ jobs:
         run: |
           latest=$(git -C .cache/core rev-parse HEAD)
           current=$(python3 -c 'import json; print(json.load(open("core-ref.json"))["revision"])')
-          echo "base=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          base=$(git rev-parse HEAD)
+          echo "base=$base" >> "$GITHUB_OUTPUT"
           echo "revision=$latest" >> "$GITHUB_OUTPUT"
           if [ "$latest" = "$current" ]; then
             echo "Core reference is current."
             exit 0
           fi
-          pending=$(gh pr list --state open --limit 100 --json headRefName --jq '[.[] | select(.headRefName | startswith("docs/core-"))] | length')
-          previous=$(gh pr list --state all --head "docs/core-$latest" --json number --jq 'length')
-          if [ "$pending" -ne 0 ] || [ "$previous" -ne 0 ]; then
-            echo "An update is awaiting review, or this revision was already proposed."
+          branch=$(python3 scripts/sync_pr_branch.py --revision "$latest" --base "$base")
+          if [ -z "$branch" ]; then
             exit 0
           fi
           echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -123,9 +122,8 @@ jobs:
             echo "Docs main changed during validation. Run this workflow again."
             exit 1
           fi
-          branch="docs/core-$CORE_REVISION"
-          if [ "$(gh pr list --state all --head "$branch" --json number --jq 'length')" -ne 0 ]; then
-            echo "This core revision already has a PR."
+          branch=$(python3 scripts/sync_pr_branch.py --revision "$CORE_REVISION" --base "$DOCS_BASE")
+          if [ -z "$branch" ]; then
             exit 0
           fi
           git switch -c "$branch"
